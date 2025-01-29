@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# Gen 1 Pokédex React Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app that displays all 151 original Pokémon using the PokeAPI. Built with React, TypeScript, and following the Atomic Design pattern.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📱 Responsive design that works on desktop and mobile
+- ⚡ Fast and efficient with semi-infinite fetching
+- ❤️ Favorite system with persistent storage
+- 🎨 Clean UI with Tailwind CSS
+- 🏗️ Organized using Atomic Design principles
+- 📝 TypeScript for better development experience
+- 🔄 Real-time data fetching with TanStack Query
+- 💾 State management with Zustand
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React + Vite
+- TypeScript
+- TanStack Query
+- Zustand
+- React Router DOM
+- Tailwind CSS
+- PokeAPI
 
-- Configure the top-level `parserOptions` property like this:
+## Prerequisites
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Before running this project, make sure you have:
+- Node.js
+- pnpm package manager
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Vaalley/3wa-react-eval.git
+cd 3wa-react-eval
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Install dependencies:
+```bash
+pnpm install
 ```
+
+3. Start the development server:
+```bash
+pnpm dev
+```
+
+4. Open your browser and visit `http://localhost:5173`
+
+## Project Structure
+
+The project follows the Atomic Design pattern:
+
+```
+src/
+├── api/          # API services
+├── components/   # React components
+│   ├── atoms/    # Basic building blocks (Button, Card, etc.)
+│   ├── molecules/# Combinations of atoms (PokemonCard)
+│   ├── organisms/# Complex components (Header)
+│   ├── templates/# Page layouts
+│   └── pages/    # Full pages
+├── hooks/        # Custom React hooks
+├── stores/       # Zustand stores
+└── types/        # TypeScript types
+```
+
+## Available Routes
+
+- `/` - Home page showing all Gen 1 Pokémon with infinite scroll
+- `/pokemon/:id` - Detail page for individual Pokémon
+- `/favorites` - Page showing your favorite Pokémon
